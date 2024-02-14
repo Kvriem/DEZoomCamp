@@ -1,0 +1,19 @@
+service:
+   postgres:
+   image: postgres
+   ports:
+    -"5432:5432"
+    enviroment:
+      -POSTGRES_USER=root
+      -POSTGRES_PASSWORD=root
+      -POSTGRES_DB=green_taxi
+    volumes:
+    - ./var/lib/postgresql/data:/var/lib/postgresql/data
+
+    pgadmin:
+    image: dpage/pgadmin4
+    ports: 
+      -"8080:80"
+    enviroment:
+      -PGADMIN_DEFAULT_EMAIL="root@root.com"
+      -PGADMIN_DEFAULT_PASSWORD="root"
